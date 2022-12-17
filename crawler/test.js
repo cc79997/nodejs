@@ -1,12 +1,15 @@
 const mysql2 = require('mysql2/promise');
+require('dotenv').config();
+// let dotenv = require('dotenv');
+// dotenv.config();
 
 (async () => {
     // create the connection to database
     const connection = await mysql2.createConnection({
-        host: 'localhost',
-        user: 'root',
-        password: '',
-        database: 'stock_mfee31'
+        host: process.env.host,
+        user: process.env.user,
+        password: process.env.password,
+        database: process.env.database
     });
 
     // simple query
